@@ -1,5 +1,6 @@
 '''Sorting -> It is used to rearrange a given array or list of elements in an order.'''
 
+
 # bubble sort -> algorithm that works by repeatedly swapping the adjacent elements if they are in the wrong order.
 
 nums = [5,8,1,6,9,2,4]
@@ -7,11 +8,18 @@ nums = [5,8,1,6,9,2,4]
 n = len(nums)
 
 for i in range(0 , n-1):
+    is_swap = False,
+
     for j in range(n - 1 - i):
         if nums[j] > nums[j + 1]:
             nums[j], nums[j + 1] = nums[j + 1], nums[j]
+            is_swap =True
+    
+    if is_swap == False:
+        break
 
-    print(nums)
+    print(nums) # TC-> O(n(n+1))/2 => O(n^2) for avg and worst and O(n) for best case and SC -> O(1)
+
 
 # selection sort -> Finding the smallest number, and putting it at the beginning, then repeating this for the rest of the list.
 
@@ -28,7 +36,10 @@ for i in range(0,n):
 
     nums[i], nums[min_index] = nums[min_index], nums[i]
 
-print(nums)
+
+print(nums) # TC-> O(n(n+1))/2 => O(n^2), it is same for all the cases and SC -> O(1)
+
+
 
 # insertion sort -> It works by iteratively inserting each element of an unsorted list into its correct position in a sorted portion of the list.
 
@@ -90,5 +101,31 @@ def merge_sort(arr):
 
 print(merge_sort(nums))
     
+# quick sort -> It picks an element as a pivot and partitions the given array around the picked pivot by placing the pivot in its correct position in the sorted array.
+
+nums = [4,1,7,6,3,2,8]
+
+def partition(nums, low, high):
+    pivot = nums[low]
+    i = low
+    j = high
+
+    while i < j:
+        while nums[i] <= pivot and i <= high - 1:
+            i += 1
+
+        while nums[j] > pivot and j >= low + 1:
+            j -= 1
+
+        if i<j:
+            nums[i],nums[j] = nums[j],nums[i]
+
+    nums[low], nums[j] = nums[j], nums[low] 
+
+    return j 
+
+p_index = partition(nums, 0, len(nums) - 1)  # TC-> best/avg - O(nlogn), worst -> O(n^2) ans SC-> O(1)
+print(nums)
+
 
 
