@@ -35,8 +35,6 @@ def binary_search(nums,target):
         
     return -1
 
-
-
 nums = [2,4,6,7,9,11,18,19] # here, low = 0 and high = n-1 => 8 - 1 -> 7.
 target = 9
 

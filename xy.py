@@ -45,5 +45,6 @@ print("Array after removing:", nums[:length])
 
 
 
-    
+
+
 
